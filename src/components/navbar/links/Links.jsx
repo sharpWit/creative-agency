@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 import styles from "./Links.module.css";
 import NavLink from "./navlink/NavLink";
@@ -48,11 +48,13 @@ function Links() {
           <NavLink item={{ title: "Login", path: "/login" }} />
         )}
       </div>
-      <Menu
+
+      <button
         className={styles.menuButton}
         onClick={() => setOpen((prev) => !prev)}
-      />
-
+      >
+        {open ? <X /> : <Menu />}
+      </button>
       {open && (
         <div className={styles.mobileLinks}>
           {links.map((link) => (
